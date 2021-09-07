@@ -7,3 +7,4 @@ export * from "./movie";
 export * from "./photo";
 export * from "./rating";
 export * from "./tokenmodel";
+export * from "./paged-result";

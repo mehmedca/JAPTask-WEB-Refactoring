@@ -10,12 +10,12 @@ import { ActorListComponent } from './feature/actors/actor-list/actor-list.compo
 import { AdminPanelComponent } from './feature/admin/admin-panel/admin-panel.component';
 import { NotFoundComponent } from './feature/errors/not-found/not-found.component';
 import { ServerErrorComponent } from './feature/errors/server-error/server-error.component';
-import { HomeComponent } from './feature/home/home.component';
 import { MovieDetailComponent } from './feature/movies/movie-detail/movie-detail.component';
 import { MovieEditComponent } from './feature/movies/movie-edit/movie-edit.component';
 import { MovieListComponent } from './feature/movies/movie-list/movie-list.component';
 import { MovieRatingsListComponent } from './feature/movies/movie-ratings-list/movie-ratings-list.component';
 import { UserEditComponent } from './feature/users/user-edit/user-edit.component';
+import { HomeComponent } from './feature/home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,8 +39,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'movies', component: MovieListComponent },
   { path: 'movies/:id', component: MovieDetailComponent },
+  { path: 'movies', component: MovieListComponent },
   { path: 'actors', component: ActorListComponent },
   { path: 'actors/:id', component: ActorDetailComponent },
   { path: 'not-found', component: NotFoundComponent },

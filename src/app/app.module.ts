@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
 import { SharedModule } from './shared/shared.module';
+import { FeatureModule } from './feature/feature.module';
 
 @NgModule({
   declarations: [AppComponent],

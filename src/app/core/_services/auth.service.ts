@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
 
@@ -26,10 +26,10 @@ export class AuthService {
   }
 
   public get currentUserValue(): TokenModel | null {
-    if (Object.keys(this.currentUserSubject.getValue).length > 0)
+    // if (Object.keys(this.currentUserSubject.getValue).length > 0)
       return this.currentUserSubject?.value;
 
-    return null;
+    // return null;
   }
 
   login(model: LoginModel) {
@@ -41,11 +41,22 @@ export class AuthService {
       .pipe(
         map((user) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
+          this.setCurrentUser(user);
           return user;
         })
       );
+  }
+
+  setCurrentUser(user: TokenModel) {
+    user.roles = [];
+    const roles = this.getDecodedToken(user.token).role;
+    Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.currentUserSubject.next(user);
+  }
+
+  getDecodedToken(token: any) {
+    return JSON.parse(atob(token.split('.')[1]));
   }
 
   logout() {

@@ -1,6 +1,6 @@
 import { BaseSearch } from "./base-search";
 
-export interface MovieSearch extends BaseSearch {
-    textualSearch: string;
-    releaseYear: number;
+export class MovieSearch extends BaseSearch {
+    textualSearch?: string;
+    isTvShow?: number;
 }

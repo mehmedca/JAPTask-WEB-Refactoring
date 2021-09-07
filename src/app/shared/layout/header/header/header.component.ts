@@ -14,10 +14,8 @@ import { TokenModel } from 'src/app/core';
 })
 export class HeaderComponent implements OnInit {
   model: LoginModel = {username: "", password: ""}
-  currentUserObj: TokenModel | null;
 
   constructor(private router: Router, public accountService: AuthService) {
-    this.currentUserObj = accountService.currentUserValue;
    }
 
   ngOnInit(): void {
@@ -34,4 +32,5 @@ export class HeaderComponent implements OnInit {
     this.accountService.logout();
     this.router.navigateByUrl('/')
   }
+
 }

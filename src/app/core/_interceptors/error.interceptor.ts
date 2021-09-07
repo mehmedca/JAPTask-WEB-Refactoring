@@ -22,15 +22,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       tap((evt) => {
-        if (evt instanceof HttpResponse) {
-          this.toastrService.success('Success', evt.status.toString(), {
-            positionClass: 'toast-top-right',
-            timeOut: 3000,
-            closeButton: true,
-            progressBar: true,
-            progressAnimation: 'increasing',
-          });
-        }
+        
       }),
       catchError((err: any) => {
         if (err instanceof HttpErrorResponse) {

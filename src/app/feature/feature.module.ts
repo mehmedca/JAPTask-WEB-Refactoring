@@ -10,11 +10,14 @@ import { ActorListComponent } from './actors/actor-list/actor-list.component';
 import { ActorDetailComponent } from './actors/actor-detail/actor-detail.component';
 import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
 import { MovieRatingsListComponent } from './movies/movie-ratings-list/movie-ratings-list.component';
-import { AdminComponent } from './admin/admin/admin.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
-import { UserEditComponent } from './user-edit/user-edit.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { SharedModule } from '../shared/shared.module';
+import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -30,14 +33,16 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     ActorDetailComponent,
     ActorEditComponent,
     MovieRatingsListComponent,
-    AdminComponent,
     AdminPanelComponent,
-    UserEditComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    UserEditComponent,
+    HomeComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    SharedModule,
+  ],
+  entryComponents: [ConfirmDialogComponent],
 })
 export class FeatureModule { }

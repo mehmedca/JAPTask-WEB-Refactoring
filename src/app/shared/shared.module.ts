@@ -37,6 +37,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule,
     HeaderComponent,
     LoaderComponent,
     HasRoleDirective,

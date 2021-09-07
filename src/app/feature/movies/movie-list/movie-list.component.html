@@ -1,1 +1,39 @@
-<p>movie-list works!</p>
+<div class="text-center mt-3">
+    <h2>Movies</h2>
+</div>
+
+<div class="container mt-3">
+    <form #form="ngForm" class="mb-3" (ngSubmit)="loadMovies()" autocomplete="off">
+        <div class="d-flex flex-row">
+            <div class="form-group p-4">
+                <label>Searching for a specific movie? Type in your phrase</label>
+                <input type="search" class="form-control ml-1" name="textualSearch" style="height: 47px;"
+                    [(ngModel)]="movieSearch.textualSearch">
+            </div>
+
+
+            <div class="form-group p-4">
+                <label>What type of show do you want to search for? </label>
+                <select name="isTvShow" style="height: 47px;" [(ngModel)]="movieSearch.isTvShow"
+                    class="form-control ml-1">
+                    <option *ngFor="let type of movieTypeList; let i = index" [value]="type.value">
+                        {{type.display}}
+                    </option>
+                </select>
+            </div>
+
+        <div class="form-group p-4">
+            <button class="btn btn-primary mt-3 ml-2" type="submit">Apply Filters</button>
+            <button (click)="resetFilters()" class="btn btn-info mt-3 ml-2" type="submit">Reset
+                Filters</button>
+        </div>
+    </div>
+
+    </form>
+</div>
+
+<div class="row">
+    <div *ngFor="let movie of movies" class="col-2">
+        <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+</div>
