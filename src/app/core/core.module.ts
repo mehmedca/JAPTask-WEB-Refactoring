@@ -6,7 +6,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { LoaderInterceptor, HttpErrorInterceptor, JwtInterceptor } from './_interceptors';
 import { AuthService, JwtService, LoaderService, UserService } from './_services';
-import { HasRoleDirective } from './_directives/has-role.directive';
+
 
 export const interceptorProviders = 
    [
@@ -17,7 +17,6 @@ export const interceptorProviders =
 
 @NgModule({
   declarations: [
-    HasRoleDirective
   ],
   imports: [
     CommonModule,

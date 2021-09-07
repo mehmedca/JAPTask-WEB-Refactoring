@@ -6,6 +6,8 @@ import { environment } from './../../../environments/environment';
 
 import { configuration } from '../config';
 import { TokenModel } from '../_models/tokenmodel';
+import { LoginModel } from '../_models/auth/login';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -13,16 +15,19 @@ export class AuthService {
     public currentUser: Observable<TokenModel | null>;
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<TokenModel | null>(JSON.parse(localStorage.getItem('currentUser') || ""));
+        this.currentUserSubject = new BehaviorSubject<TokenModel | null>(JSON.parse(localStorage.getItem('currentUser') || "{}"));
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
     public get currentUserValue(): TokenModel | null {
-        return this.currentUserSubject.value;
+        if(Object.keys(this.currentUserSubject.getValue).length > 0)
+            return this.currentUserSubject?.value;
+
+        return null;
     }
 
-    login(username: string, password: string) {
-        return this.http.post<any>(`${environment.baseUrl}${configuration.endpoints.auth.login}`, { username, password })
+    login(model: LoginModel) {
+        return this.http.post<TokenModel>(`${environment.baseUrl}${configuration.endpoints.auth.login}`, model)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));

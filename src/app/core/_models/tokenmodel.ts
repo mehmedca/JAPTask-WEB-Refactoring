@@ -4,4 +4,5 @@ export interface TokenModel {
   userId: string;
   username: string;
   roles: string[];
+  photoUrl: string;
 }
