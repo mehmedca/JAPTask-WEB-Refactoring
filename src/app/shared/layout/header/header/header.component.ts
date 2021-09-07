@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   login() {
     this.accountService.login(this.model).subscribe(response => {
-      this.router.navigateByUrl('/members');
+      this.router.navigateByUrl('/movies');
     })
   }
 
