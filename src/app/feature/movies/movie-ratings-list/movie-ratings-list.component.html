@@ -7,14 +7,14 @@
         <div class="d-flex flex-row">
             <div class="form-group p-4">
                 <label>Searching for a specific movie? Type in your phrase</label>
-                <input type="search" class="form-control ml-1" name="textualSearch" style="height: 47px;"
+                <input type="search" class="form-control ml-1" name="textualSearch" style="height: 3rem; border: 1px solid black;"
                     [(ngModel)]="movieSearch.textualSearch">
             </div>
 
 
             <div class="form-group p-4">
                 <label>What type of show do you want to search for? </label>
-                <select name="isTvShow" style="height: 47px;" [(ngModel)]="movieSearch.isTvShow"
+                <select name="isTvShow" style="height: 3rem; border: 1px solid black;" [(ngModel)]="movieSearch.isTvShow"
                     class="form-control ml-1">
                     <option *ngFor="let type of movieTypeList; let i = index" [value]="type.value">
                         {{type.display}}

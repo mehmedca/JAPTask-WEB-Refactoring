@@ -29,16 +29,20 @@ const routes: Routes = [
     children: [
       {
         path: 'movies/edit/:id',
-        component: MovieEditComponent,
+        component: UnderConstructionComponent,
         canDeactivate: [PreventUnsavedChangesGuard],
+        canActivate: [AdminGuard],
       },
       { path: 'movies/ratings', component: MovieRatingsListComponent },
-      { path: 'movies/add', component: UnderConstructionComponent },
+      { path: 'movies/add', component: UnderConstructionComponent, canDeactivate: [PreventUnsavedChangesGuard],
+      canActivate: [AdminGuard] },
 
-      { path: 'users/edit', component: UserEditComponent },
+      { path: 'users/edit', component: UnderConstructionComponent },
       
-      { path: 'actors/edit/:id', component: ActorEditComponent },
-      { path: 'actors/add', component: UnderConstructionComponent },
+      { path: 'actors/edit/:id', component: UnderConstructionComponent, canDeactivate: [PreventUnsavedChangesGuard],
+      canActivate: [AdminGuard] },
+      { path: 'actors/add', component: UnderConstructionComponent, canDeactivate: [PreventUnsavedChangesGuard],
+      canActivate: [AdminGuard] },
       
       
       {
@@ -48,10 +52,10 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'movies/:id', component: MovieDetailComponent },
+  { path: 'movies/:id', component: UnderConstructionComponent },
   { path: 'movies', component: MovieListComponent },
 
-  { path: 'actors/:id', component: ActorDetailComponent },
+  { path: 'actors/:id', component: UnderConstructionComponent },
   { path: 'actors', component: ActorListComponent },
 
   { path: 'auth/signin', component: LoginComponent },

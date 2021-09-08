@@ -21,7 +21,6 @@ export class MovieRatingsListComponent implements OnInit {
   movieInsertList: MovieInsertRequest[] = [];
 
   constructor(private movieService: MovieService, private toastr: ToastrService) {
-    // this.movieSearch = this.movieService.getMovieSearchParams();
   }
 
   ngOnInit(): void {
@@ -29,7 +28,7 @@ export class MovieRatingsListComponent implements OnInit {
   }
 
   loadMovies() {
-    // this.movieService.setUserParams(this.movieSearch);
+    this.movieSearch.retrieveAll = true;
     this.movieService.getMoviesPage(this.movieSearch).subscribe(response => {
       this.movies = response.results;
       this.movies.forEach(x => {
@@ -37,20 +36,6 @@ export class MovieRatingsListComponent implements OnInit {
       })
     })
   }
-
-  // leaveARating(movieId: number){
-  //   this.movieInsert.movieId = movieId;
-  //   if(this.movieInsert.ratingInt > 0)
-  //     this.movieService.leaveARating(this.movieInsert).subscribe(res => {
-  //       this.toastr.success("Congratulations, you have successfully left a rating!");
-  //       this.loadMovies();
-  //       this.resetRating();
-  //   })
-
-  //   else {
-  //     this.toastr.error("Please leave a rating before submiting!", "404 Bad Request");
-  //   }
-  // }
 
    leaveARating(movieId: number, i: number){
     this.movieInsertList[i].movieId = movieId;
@@ -67,9 +52,6 @@ export class MovieRatingsListComponent implements OnInit {
   }
 
   resetRating(){
-    // this.movieInsert.movieId = 0;
-    // this.movieInsert.ratingInt = 0;
-
     this.movieInsertList.forEach(x => {
       x.movieId = 0;
       x.ratingInt = 0;
@@ -77,13 +59,9 @@ export class MovieRatingsListComponent implements OnInit {
   }
 
   resetFilters() {
-    // this.movieSearch = this.movieService.resetMovieSearchParams();
+    this.movieSearch = new MovieSearch();
+    this.movies.splice(0, this.movies.length);
     this.loadMovies();
   }
 
-  pageChanged(event: any) {
-    this.movieSearch.page = event.page;
-    // this.movieSearch.setMovieSearchParams(this.movieSearch);
-    this.loadMovies();
-  }
 }

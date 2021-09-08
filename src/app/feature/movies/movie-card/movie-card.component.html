@@ -2,17 +2,12 @@
     <div class="card-img-wrapper">
         <img src="{{movie.photoUrl || './assets/user.png'}}" alt="{{movie.title}}" class="card-img-top">
         <ul class="list-inline member-icons animate text-center">
-            <li class="list-inline-item"><button routerLink='/movies/{{movie.id}}' class="btn btn-primary">
-                <i class="fa fa-user"></i></button></li>
-            <li class="list-inline-item"><button class="btn btn-primary">
-                <i class="fa fa-heart"></i></button></li>
-            <li class="list-inline-item">
                 <button 
                     routerLink='/movies/{{movie.id}}' 
                     [queryParams]='{tab: 3}'
                     class="btn btn-primary">
-                <i class="fa fa-envelope"></i>
-            </button></li>
+                <i class="fa fa-info"></i>
+            </button>
         </ul>
     </div>
     <div class="card-body p-1">
@@ -21,4 +16,5 @@
         </h6>
         <p class="card-text text-muted text-center">{{movie.releaseDate | date }}</p>
     </div>
+    <button *appHasRole='["Admin", "Moderator"]' routerLink="/movies/edit{{movie.id}}" class="btn btn-primary btn-block mt-2 p-1">Edit</button>
 </div>
