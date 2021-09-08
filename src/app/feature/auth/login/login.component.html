@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="../../../../assets/user.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+        <input type="text" id="login" class="fadeIn second" name="username" [(ngModel)]="model.username" placeholder="Username">
+        <input type="password" id="password" class="fadeIn third" name="password" [(ngModel)]="model.password" placeholder="Password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>

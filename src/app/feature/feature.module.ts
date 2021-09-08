@@ -18,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { UnderConstructionComponent } from './errors/under-construction/under-construction.component';
 
 
 
@@ -37,7 +38,8 @@ import { HomeComponent } from './home/home.component';
     NotFoundComponent,
     ServerErrorComponent,
     UserEditComponent,
-    HomeComponent
+    HomeComponent,
+    UnderConstructionComponent
   ],
   imports: [
     CommonModule,

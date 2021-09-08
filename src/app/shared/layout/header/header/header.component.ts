@@ -13,20 +13,13 @@ import { TokenModel } from 'src/app/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  model: LoginModel = {username: "", password: ""}
 
   constructor(private router: Router, public accountService: AuthService) {
    }
 
   ngOnInit(): void {
-    // this.accountService.currentUser.subscribe(response => console.log(response));
   }
 
-  login() {
-    this.accountService.login(this.model).subscribe(response => {
-      this.router.navigateByUrl('/movies');
-    })
-  }
 
   logout() {
     this.accountService.logout();

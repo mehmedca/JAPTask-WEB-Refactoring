@@ -16,6 +16,9 @@ import { MovieListComponent } from './feature/movies/movie-list/movie-list.compo
 import { MovieRatingsListComponent } from './feature/movies/movie-ratings-list/movie-ratings-list.component';
 import { UserEditComponent } from './feature/users/user-edit/user-edit.component';
 import { HomeComponent } from './feature/home/home.component';
+import { LoginComponent } from './feature/auth/login/login.component';
+import { RegisterComponent } from './feature/auth/register/register.component';
+import { UnderConstructionComponent } from './feature/errors/under-construction/under-construction.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,8 +33,14 @@ const routes: Routes = [
         canDeactivate: [PreventUnsavedChangesGuard],
       },
       { path: 'movies/ratings/:id', component: MovieRatingsListComponent },
+      { path: 'movies/add', component: UnderConstructionComponent },
+
       { path: 'users/edit', component: UserEditComponent },
+      
       { path: 'actors/edit/:id', component: ActorEditComponent },
+      { path: 'actors/add', component: UnderConstructionComponent },
+      
+      
       {
         path: 'admin',
         component: AdminPanelComponent,
@@ -41,8 +50,13 @@ const routes: Routes = [
   },
   { path: 'movies/:id', component: MovieDetailComponent },
   { path: 'movies', component: MovieListComponent },
-  { path: 'actors', component: ActorListComponent },
+
   { path: 'actors/:id', component: ActorDetailComponent },
+  { path: 'actors', component: ActorListComponent },
+
+  { path: 'auth/signin', component: LoginComponent },
+  { path: 'auth/register', component: RegisterComponent },
+
   { path: 'not-found', component: NotFoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },

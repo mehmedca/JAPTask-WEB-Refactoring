@@ -1,7 +1,6 @@
 export interface Actor {
    id: number;
-   firstName: string;
-   lastName: string;
+   fullName: string;
    photoId: number;
    photoUrl: string;
 }

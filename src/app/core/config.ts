@@ -5,7 +5,7 @@ export let configuration = {
       register: 'auth/register',
     },
     actors: {
-      index: 'investors',
+      index: 'actors',
       addPhoto: 'add-photo'
     },
     movies: {

@@ -51,10 +51,11 @@
 
                 <div *appHasRole='["Admin", "Moderator"]' class="dropdown" style="margin-top: 0.6rem;" dropdown>
                     <li class="nav-item">
-                        <a class="dropdown-toggle text-light ml-2" dropdownToggle routerLinkActive='active'>Admin panel</a>
+                        <a class="dropdown-toggle text-light ml-2" dropdownToggle routerLinkActive='active'>Admin
+                            panel</a>
                         <div class="dropdown-menu mt-3" *dropdownMenu>
-                            <a  routerLink='/ratings' class="dropdown-item">Ratings</a>
-                            <a  routerLink='/users' class="dropdown-item">Users</a>
+                            <a routerLink='/movies/add' class="dropdown-item">Add new movie</a>
+                            <a routerLink='/actors/add' class="dropdown-item">Add new actor</a>
                         </div>
                     </li>
                 </div>
@@ -72,14 +73,11 @@
             </div>
         </div>
 
-        <form *ngIf="(accountService.currentUser | async) == null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0"
-            (ngSubmit)="login()" autocomplete="off">
-            <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text"
-                placeholder="Username">
-            <input name="password" [(ngModel)]="model.password" class="form-control mr-sm-2" type="password"
-                placeholder="Password">
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
-        </form>
+
+        <div *ngIf="(accountService.currentUser | async) == null">
+            <a routerLink="/auth/signin"><button class="btn btn-outline-light mr-4">Sign in</button></a>
+            <a routerLink="/auth/register"><button class="btn btn-outline-light">Register</button></a>
+        </div>
     </div>
 
 </nav>
