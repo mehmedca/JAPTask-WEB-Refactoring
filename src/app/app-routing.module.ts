@@ -32,7 +32,7 @@ const routes: Routes = [
         component: MovieEditComponent,
         canDeactivate: [PreventUnsavedChangesGuard],
       },
-      { path: 'movies/ratings/:id', component: MovieRatingsListComponent },
+      { path: 'movies/ratings', component: MovieRatingsListComponent },
       { path: 'movies/add', component: UnderConstructionComponent },
 
       { path: 'users/edit', component: UserEditComponent },

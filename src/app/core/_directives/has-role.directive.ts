@@ -15,27 +15,21 @@ export class HasRoleDirective implements OnInit {
     private accountService: AuthService) {
       this.accountService.currentUser.pipe(take(1)).subscribe(user => {
         this.user = user;
-        // this.updateView();
       })
      }
 
   ngOnInit(): void {
-   
-  }
-
-  updateView()
-  {
-     // clear view if no roles
-     if (this.user?.roles == undefined || this.user == null || this.user == undefined) {
+    // clear view if no roles
+    if (this.user?.roles == undefined || this.user == null || this.user == undefined) {
       this.viewContainerRef.clear();
       return;
     }
 
-    const roles = ['Admin', 'Moderator'];
-    if (this.user?.roles.some(r  => roles?.includes(r))) {
+    if (this.user?.roles.some(r  => this.appHasRole?.includes(r))) {
       this.viewContainerRef.createEmbeddedView(this.templateRef);
     } else {
       this.viewContainerRef.clear();
     }
   }
+
 }

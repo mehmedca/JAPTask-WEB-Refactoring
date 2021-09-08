@@ -5,15 +5,27 @@
         <ul class="navbar-nav mr-auto">
             <ng-container>
 
-                <li class="nav-item">
-                    <a class="nav-link" routerLink='/movies' routerLinkActive='active'>Movies</a>
-                </li>
+                <div *ngIf="(accountService.currentUser | async) != null; else elseBlock" class="dropdown" style="margin-top: 0.6rem;" dropdown>
+                    <li class="nav-item">
+                        <a class="dropdown-toggle text-light ml-2" dropdownToggle routerLinkActive='active'>Movies</a>
+                        <div class="dropdown-menu mt-3" *dropdownMenu>
+                            <a routerLink='/movies' class="dropdown-item">Movies list</a>
+                            <a routerLink='/movies/ratings' class="dropdown-item">Rate a movie</a>
+                        </div>
+                    </li>
+                </div>
+
+                <ng-template #elseBlock>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink='/movies' routerLinkActive='active'>Movies</a>
+                    </li>
+                </ng-template>
 
                 <li class="nav-item">
                     <a class="nav-link" routerLink='/actors' routerLinkActive='active'>Actors</a>
                 </li>
 
-                <div *appHasRole='["Admin", "Moderator"]' class="dropdown" style="margin-top: 0.6rem;" dropdown>
+                <div *ngIf="checkIfUserHasRole()" class="dropdown" style="margin-top: 0.6rem;" dropdown>
                     <li class="nav-item">
                         <a class="dropdown-toggle text-light ml-2" dropdownToggle routerLinkActive='active'>Admin
                             panel</a>

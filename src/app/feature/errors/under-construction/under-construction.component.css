@@ -1,52 +1,110 @@
-/* Set height to 100% for body and html to enable the background image to cover the whole page: */
-body, html {
-    height: 100%
+
+  * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
   
-  .bgimg {
-    /* Background image */
-    background-image: url('../../../../assets/waterfalls1.jpg');
-    /* Full-screen */
-    height: 100%;
-    /* Center the background image */
-    background-position: center;
-    /* Scale and zoom in the image */
-    background-size: cover;
-    /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #notfound {
     position: relative;
-    /* Add a white text color to all elements inside the .bgimg container */
-    color: white;
-    /* Add a font */
-    font-family: "Courier New", Courier, monospace;
-    /* Set the font-size to 25 pixels */
-    font-size: 25px;
+    height: 100vh;
   }
   
-  /* Position text in the top-left corner */
-  .topleft {
+  #notfound .notfound {
     position: absolute;
-    top: 0;
-    left: 16px;
-  }
-  
-  /* Position text in the bottom-left corner */
-  .bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-  }
-  
-  /* Position text in the middle */
-  .middle {
-    position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
   
-  /* Style the <hr> element */
-  hr {
-    margin: auto;
-    width: 40%;
+  .notfound {
+    max-width: 920px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
   }
+  
+  .notfound .notfound-404 {
+    position: absolute;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    z-index: -1;
+  }
+  
+  .notfound .notfound-404 h1 {
+    font-family: 'Maven Pro', sans-serif;
+    color: #ececec;
+    font-weight: 900;
+    font-size: 276px;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .notfound h2 {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 46px;
+    color: #000;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0px;
+  }
+  
+  .notfound p {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+  
+  .notfound a {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #189cf0;
+    display: inline-block;
+    padding: 16px 38px;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    color: #fff;
+    font-weight: 400;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+  }
+  
+  .notfound a:hover {
+    background-color: #fff;
+    border-color: #189cf0;
+    color: #189cf0;
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .notfound .notfound-404 h1 {
+      font-size: 162px;
+    }
+    .notfound h2 {
+      font-size: 26px;
+    }
+  }
+  
+
+
