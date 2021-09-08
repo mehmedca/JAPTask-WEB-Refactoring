@@ -16,7 +16,6 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { SharedModule } from '../shared/shared.module';
 import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
-import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { UnderConstructionComponent } from './errors/under-construction/under-construction.component';
 
@@ -39,7 +38,7 @@ import { UnderConstructionComponent } from './errors/under-construction/under-co
     ServerErrorComponent,
     UserEditComponent,
     HomeComponent,
-    UnderConstructionComponent
+    UnderConstructionComponent,
   ],
   imports: [
     CommonModule,

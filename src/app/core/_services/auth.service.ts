@@ -7,6 +7,7 @@ import { environment } from './../../../environments/environment';
 import { configuration } from '../config';
 import { TokenModel } from '../_models/tokenmodel';
 import { LoginModel } from '../_models/auth/login';
+import { RegisterModel } from '../_models/auth/register';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -27,7 +28,7 @@ export class AuthService {
 
   public get currentUserValue(): TokenModel | null {
     // if (Object.keys(this.currentUserSubject.getValue).length > 0)
-      return this.currentUserSubject?.value;
+    return this.currentUserSubject?.value;
 
     // return null;
   }
@@ -47,10 +48,25 @@ export class AuthService {
       );
   }
 
+  register(model: RegisterModel) {
+    return this.http
+      .post<TokenModel>(
+        `${environment.baseUrl}${configuration.endpoints.auth.register}`,
+        model
+      )
+      .pipe(
+        map((user) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          this.setCurrentUser(user);
+          return user;
+        })
+      );
+  }
+
   setCurrentUser(user: TokenModel) {
     user.roles = [];
     const roles = this.getDecodedToken(user.token).role;
-    Array.isArray(roles) ? user.roles = roles : user.roles.push(roles);
+    Array.isArray(roles) ? (user.roles = roles) : user.roles.push(roles);
     localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
