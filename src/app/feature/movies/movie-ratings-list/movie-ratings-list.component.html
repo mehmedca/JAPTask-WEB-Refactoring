@@ -1,1 +1,78 @@
-<p>movie-ratings-list works!</p>
+<div class="text-center mt-3">
+    <h2>Leave your rating</h2>
+</div>
+
+<div class="container mt-3">
+    <form #form="ngForm" class="mb-3" (ngSubmit)="loadMovies()" autocomplete="off">
+        <div class="d-flex flex-row">
+            <div class="form-group p-4">
+                <label>Searching for a specific movie? Type in your phrase</label>
+                <input type="search" class="form-control ml-1" name="textualSearch" style="height: 47px;"
+                    [(ngModel)]="movieSearch.textualSearch">
+            </div>
+
+
+            <div class="form-group p-4">
+                <label>What type of show do you want to search for? </label>
+                <select name="isTvShow" style="height: 47px;" [(ngModel)]="movieSearch.isTvShow"
+                    class="form-control ml-1">
+                    <option *ngFor="let type of movieTypeList; let i = index" [value]="type.value">
+                        {{type.display}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group p-4">
+                <button class="btn btn-primary mt-3 ml-2" type="submit">Apply Filters</button>
+                <button (click)="resetFilters()" class="btn btn-info mt-3 ml-2" type="submit">Reset
+                    Filters</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="row">
+    <div *ngFor="let movie of movies; let i = index" class="row col-12"
+        style="margin-bottom: 1rem; padding: 1rem; border: 1px solid black;">
+        <div class="col-4">
+            <img src="{{movie.photoUrl || './assets/user.png'}}" alt="{{movie.title}}"
+                style="height: 150px; width: 150px;">
+        </div>
+
+        <div class="col-4">
+            <h6 class="card-title text-left mb-1" style="font-weight: 600;"><i class="fa fa-circle mr-2"></i>
+                {{movie.title}}
+            </h6>
+            <h6 class="card-text text-muted text-left mb-1"><i class="fa fa-circle mr-2"></i>
+                {{movie.description}}
+            </h6>
+            <h6 class="card-text text-muted text-left mb-1"><i class="fa fa-circle mr-2"></i>
+                {{movie.releaseDate | date }}
+            </h6>
+            <h6 class="card-title text-muted text-left mb-1" style="font-weight: 600;">
+                <span style="display: block; margin-bottom: 0;"><i class="fa fa-circle mr-2"></i> Average rating:</span>
+
+                <ngb-rating *ngIf="movie.ratingTotal > 0; else elseBlock" [(rate)]="movie.ratingTotal" [readonly]="true"
+                    [max]="5">
+                    <ng-template let-fill="fill">
+                        <span class="defaultHeart" [class.filled]="fill === 100">
+                            <span class="paintedHeart" [style.width.%]="fill">&Star;</span>&Star;
+                        </span>
+                    </ng-template>
+                </ngb-rating>
+
+                <ng-template #elseBlock><span style="font-size: 15px; color: darkgoldenrod;"> Be the first one to leave
+                        rating!</span></ng-template>
+            </h6>
+        </div>
+
+        <div class="col-4 text-center">
+            <p>Your rating: </p>
+                <ngb-rating id="" [max]="5" [(rate)]="movieInsertList[i].ratingInt" [readonly]="false"></ngb-rating>
+                <br>
+                <button type="button" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;" (click)="leaveARating(movie.id, i)">SUBMIT</button>
+        </div>
+
+    </div>
+</div>

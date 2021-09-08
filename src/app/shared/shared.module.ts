@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbRating, NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 // import {FileUploadModule} from 'ng2-file-upload';
@@ -54,6 +54,7 @@ import { TextInputComponent } from '../core/_forms/text-input/text-input.compone
     ButtonsModule,
     DateInputComponent,
     TextInputComponent,
+    NgbRating,
   ],
 })
 export class SharedModule {}

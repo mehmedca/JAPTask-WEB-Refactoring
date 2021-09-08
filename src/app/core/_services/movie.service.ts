@@ -8,6 +8,7 @@ import { Movie } from '../_models/movie';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { MovieInsertRequest } from '../_models/movieinsert';
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +16,14 @@ import { Injectable } from '@angular/core';
 export class MovieService extends ApiService {
   constructor(http: HttpClient) {
     super(http);
+  }
+
+
+  leaveARating(model: MovieInsertRequest){
+    return this.http.post(
+      `${environment.baseUrl}${configuration.endpoints.movies.index}/${configuration.endpoints.movies.addRating}`,
+      model
+    );
   }
 
   getMovieById(id: number) {

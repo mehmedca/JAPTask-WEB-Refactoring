@@ -1,0 +1,27 @@
+ngb-rating {
+    color: #ccbf02;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.filled{
+    color: #ccbf02;
+}
+
+.notfilled{
+    color:#6e6a6a;
+}
+
+.defaultHeart{
+    position: relative;
+    display: inline-block;
+    color:gray;
+    font-size: 50px;
+}
+
+.paintedHeart{
+    position: absolute;
+      display: inline-block;
+      overflow: hidden;
+      color: #ccbf02;
+}
