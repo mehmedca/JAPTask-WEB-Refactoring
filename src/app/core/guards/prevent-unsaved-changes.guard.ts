@@ -3,7 +3,7 @@ import { CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MovieEditComponent } from 'src/app/feature/movies/movie-edit/movie-edit.component';
 
-import { ConfirmService } from '../_services';
+import { ConfirmService } from '../services';
 
 
 

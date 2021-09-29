@@ -4,8 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { AuthService } from '../_services/auth.service';
-import { TokenModel } from '../_models/tokenmodel';
+import { AuthService } from '../services/auth.service';
+import { TokenModel } from '../models/tokenmodel';
 
 @Injectable({
   providedIn: 'root'

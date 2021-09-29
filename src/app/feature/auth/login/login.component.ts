@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core';
-import { LoginModel } from 'src/app/core/_models/auth/login';
+import { LoginModel } from 'src/app/core/models/auth/login';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.accountService.currentUser.subscribe(response => console.log(response));
   }
 
   login() {

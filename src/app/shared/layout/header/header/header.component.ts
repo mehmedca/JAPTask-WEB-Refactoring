@@ -1,10 +1,9 @@
 import { take } from 'rxjs/operators';
-import { TokenModel } from './../../../../core/_models/tokenmodel';
+import { TokenModel } from './../../../../core/models/tokenmodel';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../../../core/_services/auth.service';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',

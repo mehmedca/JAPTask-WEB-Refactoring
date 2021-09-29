@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Actor, TokenModel } from 'src/app/core';
-import { ActorService } from 'src/app/core/_services/actor.service';
+import { ActorService } from 'src/app/core/services/actor.service';
 
 @Component({
   selector: 'app-actor-list',

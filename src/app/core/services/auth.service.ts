@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
 
 import { configuration } from '../config';
-import { TokenModel } from '../_models/tokenmodel';
-import { LoginModel } from '../_models/auth/login';
-import { RegisterModel } from '../_models/auth/register';
+import { TokenModel } from '../models/tokenmodel';
+import { LoginModel } from '../models/auth/login';
+import { RegisterModel } from '../models/auth/register';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -27,10 +27,7 @@ export class AuthService {
   }
 
   public get currentUserValue(): TokenModel | null {
-    // if (Object.keys(this.currentUserSubject.getValue).length > 0)
     return this.currentUserSubject?.value;
-
-    // return null;
   }
 
   login(model: LoginModel) {

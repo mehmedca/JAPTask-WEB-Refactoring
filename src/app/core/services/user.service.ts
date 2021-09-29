@@ -5,7 +5,7 @@ import { Observable ,  BehaviorSubject ,  ReplaySubject } from 'rxjs';
 import { ApiService } from './api.service';
 import { JwtService } from './jwt.service';
 import { map ,  distinctUntilChanged } from 'rxjs/operators';
-import { TokenModel } from '../_models/tokenmodel';
+import { TokenModel } from '../models/tokenmodel';
 
 
 @Injectable()

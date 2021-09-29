@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
 
 import { Movie, TokenModel } from 'src/app/core';
-import { MovieSearch } from 'src/app/core/_models/search/movie-search';
-import { MovieService } from '../../../core/_services/movie.service';
-import { PagedResult } from '../../../core/_models/paged-result';
+import { MovieSearch } from 'src/app/core/models/search/movie-search';
+import { MovieService } from '../../../core/services/movie.service';
 
 @Component({
   selector: 'app-movie-list',

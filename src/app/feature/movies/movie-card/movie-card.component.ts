@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
-import { Movie } from '../../../core/_models/movie';
-import { MovieService } from '../../../core/_services/movie.service';
+import { Movie } from '../../../core/models/movie';
+import { MovieService } from '../../../core/services/movie.service';
 
 @Component({
   selector: 'app-movie-card',

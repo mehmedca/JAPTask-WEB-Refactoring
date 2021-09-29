@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie, MovieService, TokenModel } from 'src/app/core';
-import { MovieSearch } from 'src/app/core/_models/search/movie-search';
-import { MovieInsertRequest } from '../../../core/_models/movieinsert';
+import { MovieSearch } from 'src/app/core/models/search/movie-search';
+import { MovieInsertRequest } from '../../../core/models/movieinsert';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -12,12 +12,10 @@ import { ToastrService } from 'ngx-toastr';
 export class MovieRatingsListComponent implements OnInit {
 
   movies: Movie[] = [];
-  // pagination: Pagination;
   movieSearch: MovieSearch = new MovieSearch();
   loggedUser: TokenModel = {photoUrl: '', roles: [], token: '', userId: '', username: '', validTo: new Date};
   movieTypeList = [{ value: '0', display: 'Movies' }, { value: '1', display: 'TV Shows' }];
 
-  // movieInsertList: MovieInsertRequest[] = {movieId: 0, ratingInt: 0};
   movieInsertList: MovieInsertRequest[] = [];
 
   constructor(private movieService: MovieService, private toastr: ToastrService) {

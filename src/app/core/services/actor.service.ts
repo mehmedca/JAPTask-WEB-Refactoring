@@ -3,12 +3,11 @@ import { environment } from 'src/environments/environment';
 
 import { configuration, PagedResult } from '..';
 import { ApiService } from './api.service';
-import { Movie } from '../_models/movie';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { ActorSearch } from '../_models/search/actor-search';
-import { Actor } from '../_models/actor';
+import { ActorSearch } from '../models/search/actor-search';
+import { Actor } from '../models/actor';
 
 @Injectable({
     providedIn: 'root'

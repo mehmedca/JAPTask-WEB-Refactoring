@@ -8,13 +8,13 @@ import {
   LoaderInterceptor,
   HttpErrorInterceptor,
   JwtInterceptor,
-} from './_interceptors';
+} from './interceptors';
 import {
   AuthService,
   JwtService,
   LoaderService,
   UserService,
-} from './_services';
+} from './services';
 import { SharedModule } from '../shared/shared.module';
 
 export const interceptorProviders = [

@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../../core/_services/auth.service';
-import { RegisterModel } from '../../../core/_models/auth/register';
+import { AuthService } from '../../../core/services/auth.service';
+import { RegisterModel } from '../../../core/models/auth/register';
 
 @Component({
   selector: 'app-register',

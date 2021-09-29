@@ -8,7 +8,7 @@ import {
 } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-import { LoaderService } from "../_services/loader.service";
+import { LoaderService } from "../services/loader.service";
 
 @Injectable({
   providedIn: "root"
