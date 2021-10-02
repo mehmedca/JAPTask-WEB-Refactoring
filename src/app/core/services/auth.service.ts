@@ -33,7 +33,7 @@ export class AuthService {
   login(model: LoginModel) {
     return this.http
       .post<TokenModel>(
-        `${environment.baseUrl}${configuration.endpoints.auth.login}`,
+        `${environment.baseAuthUrl}${configuration.endpoints.auth.login}`,
         model
       )
       .pipe(
@@ -48,7 +48,7 @@ export class AuthService {
   register(model: RegisterModel) {
     return this.http
       .post<TokenModel>(
-        `${environment.baseUrl}${configuration.endpoints.auth.register}`,
+        `${environment.baseAuthUrl}${configuration.endpoints.auth.register}`,
         model
       )
       .pipe(

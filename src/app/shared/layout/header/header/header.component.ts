@@ -25,7 +25,48 @@ export class HeaderComponent implements OnInit {
       .subscribe((res) => (this.user = res));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('Token expiration: ' + this.user?.validTo);
+    this.checkIsTokenExpired();
+  }
+
+  checkIsTokenExpired() {
+    let tokenDate = this.user?.validTo;
+    if (tokenDate != undefined) {
+      if (!this.validateTokenDate(tokenDate)) {
+        this.logout();
+      }
+    } else {
+      this.logout();
+    }
+  }
+
+  //Token is valid for 5 hours
+  validateTokenDate(tokenDate: Date): Boolean {
+    let dateNow = new Date();
+    let tokenDateStr = tokenDate.toString();
+    let tokenDateString = tokenDateStr.substring(0, tokenDateStr.indexOf('T'));
+    let dateArr = tokenDateString.split('-');
+    let timeInt = Number.parseInt(tokenDateStr.substring(tokenDateStr.indexOf('T'), 2));
+    if (Number.parseInt(dateArr[1]) < dateNow.getMonth() + 1) {
+      return false;
+    }
+    if (
+      Number.parseInt(dateArr[1]) === dateNow.getMonth() + 1 &&
+      Number.parseInt(dateArr[2]) < dateNow.getDate()
+    ) {
+      return false;
+    }
+    if (
+      Number.parseInt(dateArr[1]) === dateNow.getMonth() + 1 &&
+      Number.parseInt(dateArr[2]) === dateNow.getDate()
+    ) {
+      if (dateNow.getHours() > timeInt) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   checkIfUserHasRole(): boolean {
     if (this.user == null || this.user == undefined) return false;
